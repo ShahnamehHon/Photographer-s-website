@@ -75,6 +75,7 @@ a {
 
 body {
   font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out;
 }
 
 h1 {
@@ -135,7 +136,7 @@ nav {
 
 .hero-images {
   flex: 1 1 40rem;
-  background: linear-gradient(#dad8dd, #dad1d4);
+  /* background: linear-gradient(#dad8dd, #dad1d4); */
   position: relative;
   z-index: 1;
 }
@@ -146,6 +147,11 @@ nav {
   bottom: -20px;
   left: -2%;
   z-index: -1;
+  transform: rotateX(-90deg);
+
+  animation: tattoo 1.5s ease-in-out 0.5s forwards,
+    tattoo-scale 2.5s infinite ease-in-out alternate-reverse 2s;
+  transform-origin: bottom;
 }
 
 .hero-eliza {
@@ -154,4 +160,33 @@ nav {
   height: 52.2rem;
   object-fit: fill;
   margin-left: 14rem;
+}
+
+/* ANIMATION */
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tattoo {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes tattoo-scale {
+  from {
+    transform: rotate(5deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }
